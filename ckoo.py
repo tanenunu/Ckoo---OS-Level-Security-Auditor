@@ -1,6 +1,7 @@
 from commandRegistry import REGISTRY
 from commandRunner import run_command
 from riskScorer import analyze_output
+import reportGenerator as report
 print("----------------------------")
 def print_header():
     header = r"""
@@ -15,14 +16,16 @@ def print_header():
 
     """
     print(header)
+    report.beginReport(header)
 
 print_header()
 for check in REGISTRY:
-    print(f"Check: {check['name']}")
-    print(f"Description: {check['description']}")
+    report.Append(f"Check: {check['name']}")
+
+    report.Append(f"Description: {check['description']}")
+
     output = run_command(check["command"])
     for risk in check["risk_patterns"]:
-        print(f"Checking for: {risk["reason"]}")
 
         analyze_output(output, risk)
         is_risky = False
@@ -30,10 +33,11 @@ for check in REGISTRY:
             is_risky = True
 
         if is_risky:
-            print(f"Risk detected ({risk['severity']})")
-            print(f"Occurances: {risk['occurances']}")
+            report.Append(f"Risk detected ({risk['severity']})")
+            report.Append(f"Occurances: {risk['occurances']}")
+            #----UNCOMMENT to see logs of 'risky' output
             # for log in risk['logged_occurances']:
             #     print(f"{log}")
         else:
-            print("No obvious risk detected")
-        print("-" * 40)
+            report.Append("No obvious risk detected")
+        report.Append("-" * 40)

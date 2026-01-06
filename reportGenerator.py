@@ -37,7 +37,47 @@ def get_os_version():
     else:
         return f"Unknown ({os_name})"
 
+def render_check_section(check):
+    # check: dict from REGISTRY
+    # results: dict containing analysed output for this check
+    # --- Header ---
+    lines = []
+    lines.append(f"\nCHECK: {check['name']}")
+    lines.append("Description:")
+    lines.append(f"     {check['description']}\n")
+
+    total_issues = sum(risk["occurances"] for risk in check["risk_patterns"])
+
+    status = "OK"
+    if total_issues > 0:
+        status = "WARNING"
     
+    lines.append("Results:")
+    lines.append(f"     Status: {status}")
+    lines.append(f"     Total issues: {total_issues}\n")
+
+    # --- Findings ---
+    if total_issues == 0:
+        lines.append("Findings:")
+        line.append("     No issues detected")
+        return "\n".join(lines)
+    
+    lines.append("Findings:")
+    for risk in check["risk_patterns"]:
+        if risk["occurances"] == 0:
+            continue
+
+        lines.append(f"     -[{risk['severity']}] {risk['reason']}")
+        lines.append(f"     Occurances: {risk['occurances']}")
+
+        if risk["logged_occurances"]:
+            lines.append("     Example:")
+            for log in risk["logged_occurances"][:5]:
+                lines.append(f"     {log.strip()}")
+        lines.append("") #spacing
+    return "\n".join(lines)
+
+
 
 
 def generateReport():
@@ -64,6 +104,10 @@ def generateReport():
         file.write(f"Total checks run: {total_checks_run}\nIssues found: {total_issues_found}\nOverall risk: {overall_risk}")
     
     # --- CHECK RESULTS ---
+    for check in REGISTRY:
+        section = render_check_section(check)
+        Append(section)
+
 
 
 

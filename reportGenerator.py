@@ -5,11 +5,11 @@ import getpass
 import platform
 import socket
 from riskScorer import calculate_total_risk
+from riskScorer import calculate_risk_breakdown
 
 def beginReport(header):
     with open("report.txt", "w") as file:
         file.write(header)
-
 
 def Append(text):
     with open("report.txt", "a") as file:
@@ -36,6 +36,24 @@ def get_os_version():
         return platform.version()
     else:
         return f"Unknown ({os_name})"
+
+def render_risk_chart(breakdown):
+    lines = []
+    lines.append("\nRISK BREAKDOWN")
+    lines.append("--------------")
+
+    max_value = max(breakdown.values()) if breakdown else 1
+    bar_width = 20
+
+    for severity in ["HIGH", "MEDIUM", "LOW"]:
+        value = breakdown.get(severity, 0)
+        bar_length = int((value / max_value) * bar_width)
+        bar = "█" * bar_length
+
+        lines.append(
+            f"{severity:<6} | {bar:<20} ({value})"
+        )
+    return "\n".join(lines)
 
 def render_check_section(check):
     # check: dict from REGISTRY
@@ -96,13 +114,18 @@ def generateReport():
     total_checks_run = SUMMARY['total_checks_run']
     total_issues_found = SUMMARY['issues_found']
     overall_risk = calculate_total_risk(REGISTRY)
+    breakdown = calculate_risk_breakdown(REGISTRY)
+    chart = render_risk_chart(breakdown)
+    
 
     with open("report.txt", "a") as file:
         file.write(f"\nCKOO SECURITY REPORT\n===================\n")
         file.write(f"Generated: {current_datetime}\nUser: {user}\nHost: {hostname}\nSystem: {system + " " + os_version + " " + architecture}\n\n")
         file.write(f"SUMMARY\n-------\n")
         file.write(f"Total checks run: {total_checks_run}\nIssues found: {total_issues_found}\nOverall risk: {overall_risk}")
+        file.write(f"\n{chart}")
         file.write(f"\n\nRESULTS\n-------")
+    
     
     # --- CHECK RESULTS ---
     for check in REGISTRY:

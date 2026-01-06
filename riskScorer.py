@@ -21,11 +21,11 @@ def calculate_risk_breakdown(REGISTRY):
      OCCURRENCE_CAP = 10
 
      for check in REGISTRY:
-          for risk in check:
-               severity = risk["severity"].upper
+          for risk in check['risk_patterns']:
+               severity = risk['severity'].upper()
                weight = SEVERITY_WEIGHTS.get(severity, 0)
-               occurrences = min(risk["occurrences"], OCCURRENCE_CAP)
-               BREAKDOWN['severity'] += weight * occurrences
+               occurrences = min(risk['occurrences'], OCCURRENCE_CAP)
+               BREAKDOWN[severity] += weight * occurrences
      return BREAKDOWN
 
 

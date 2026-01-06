@@ -9,8 +9,8 @@ REGISTRY = [
                 "reason" : "Open ports with LISTEN enabled",
                 "severity" : "Medium",
                 "checked" : False,
-                "occurances" : 0,
-                "logged_occurances" : []
+                "occurrences" : 0,
+                "logged_occurrences" : []
             }
         ]
      },
@@ -24,16 +24,16 @@ REGISTRY = [
                 "reason" : "Process running with elevated privileges",
                 "severity" : "Medium",
                 "checked" : False,
-                "occurances" : 0,
-                "logged_occurances" : []
+                "occurrences" : 0,
+                "logged_occurrences" : []
             },
             {
                 "pattern" : " ? ",
                 "reason" : "Background process without controlling terminal",
                 "severity" : "Medium",
                 "checked" : False,
-                "occurances" : 0,
-                "logged_occurances" : []
+                "occurrences" : 0,
+                "logged_occurrences" : []
             }
         ]
     }

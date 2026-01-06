@@ -46,7 +46,7 @@ def render_check_section(check):
     lines.append("Description:")
     lines.append(f"     {check['description']}\n")
 
-    total_issues = sum(risk["occurances"] for risk in check["risk_patterns"])
+    total_issues = sum(risk["occurrences"] for risk in check["risk_patterns"])
 
     status = "OK"
     if total_issues > 0:
@@ -64,15 +64,15 @@ def render_check_section(check):
     
     lines.append("Findings:")
     for risk in check["risk_patterns"]:
-        if risk["occurances"] == 0:
+        if risk["occurrences"] == 0:
             continue
 
         lines.append(f"     -[{risk['severity']}] {risk['reason']}")
-        lines.append(f"     Occurances: {risk['occurances']}")
+        lines.append(f"     Occurrences: {risk['occurrences']}")
 
-        if risk["logged_occurances"]:
+        if risk["logged_occurrences"]:
             lines.append("     Example:")
-            for log in risk["logged_occurances"][:5]:
+            for log in risk["logged_occurrences"][:5]:
                 lines.append(f"     {log.strip()}")
         lines.append("") #spacing
     return "\n".join(lines)
@@ -102,8 +102,10 @@ def generateReport():
         file.write(f"Generated: {current_datetime}\nUser: {user}\nHost: {hostname}\nSystem: {system + " " + os_version + " " + architecture}\n\n")
         file.write(f"SUMMARY\n-------\n")
         file.write(f"Total checks run: {total_checks_run}\nIssues found: {total_issues_found}\nOverall risk: {overall_risk}")
+        file.write(f"\n\nRESULTS\n-------`")
     
     # --- CHECK RESULTS ---
+
     for check in REGISTRY:
         section = render_check_section(check)
         Append(section)

@@ -3,33 +3,43 @@ def analyze_output(output, risk_pattern):
     for line in output.splitlines():
         if risk_pattern['pattern'] in line:
             matching_lines.append(line.strip())
-    risk_pattern['logged_occurances'] = matching_lines
-    risk_pattern['occurances'] = len(matching_lines)
+    risk_pattern['logged_occurrences'] = matching_lines
+    risk_pattern['occurrences'] = len(matching_lines)
     risk_pattern['checked'] = True
 
 def calculate_total_risk(REGISTRY):
     # --- Calculate Total Checks Performed by the Program ---
-    total_checks = 0
+    SEVERITY_WEIGHTS = {
+        "LOW" : 1,
+        "MEDIUM" : 3,
+        "HIGH" : 5
+    }
+    OCCURRENCE_CAP = 10
+    #total_checks = 0
     actual_risk = 0
+    maximum_risk = 0
     for check in REGISTRY:
         for risk in check['risk_patterns']:
-            total_checks = total_checks + 1
-            if risk['occurances'] > 0:
-                if risk['severity'] == "LOW":
-                    actual_risk = actual_risk + 1
-                elif risk['severity'] == "MEDIUM":
-                    actual_risk = actual_risk + 2
-                elif risk['severity'] == "HIGH":
-                    actual_risk = actual_risk + 3
-    maximum_risk = total_checks * 3
-    overall_risk = "NOTYETMADE"
-    if actual_risk <= maximum_risk / 3:
-        overall_risk = "LOW"
-    elif actual_risk <= maximum_risk / 2:
-        overall_risk = "MEDIUM"
+            severity = risk["severity"].upper()
+            weight = SEVERITY_WEIGHTS.get(severity, 0)
+            
+            # Maximum possible contribution from this risk pattern
+            maximum_risk += weight * OCCURRENCE_CAP
+
+            #Actual contribution
+            occurrences = min(risk["occurrences"], OCCURRENCE_CAP) #will return the cap if occurences is higher
+            actual_risk += weight * occurrences
+    if maximum_risk == 0:
+            return "LOW"
+    
+    risk_ratio = actual_risk / maximum_risk
+
+    if risk_ratio <= 0.25:
+        return "LOW"
+    elif risk_ratio <= 0.60:
+            return "MEDIUM"
     else:
-        overall_risk = "HIGH"
-    return overall_risk
+            return "HIGH"
     
 
     

@@ -35,14 +35,14 @@ for check in REGISTRY:
     for risk in check["risk_patterns"]:
         analyze_output(output, risk)
         is_risky = False
-        if risk['occurances'] > 0:
+        if risk['occurrences'] > 0:
             is_risky = True
 
         if is_risky:
             #report.Append(f"Risk detected ({risk['severity']})")
-            #report.Append(f"Occurances: {risk['occurances']}")
+            #report.Append(f"occurrences: {risk['occurrences']}")
             #----UNCOMMENT to see logs of 'risky' output
-            # for log in risk['logged_occurances']:
+            # for log in risk['logged_occurrences']:
             #     print(f"{log}")
             4
         else:
@@ -52,6 +52,6 @@ for check in REGISTRY:
 
         # --- Update the Summary ---
         SUMMARY['total_checks_run'] = SUMMARY['total_checks_run'] + 1
-        SUMMARY['issues_found'] = SUMMARY['issues_found'] + risk['occurances']
+        SUMMARY['issues_found'] = SUMMARY['issues_found'] + risk['occurrences']
     
 report.generateReport()

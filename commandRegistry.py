@@ -38,3 +38,8 @@ REGISTRY = [
         ]
     }
 ]
+SUMMARY = {
+            "total_checks_run" : 0,
+            "issues_found" : 0,
+            "overall_risk" : "LOW"
+}

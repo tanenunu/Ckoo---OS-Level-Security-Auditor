@@ -1,8 +1,11 @@
 from commandRegistry import REGISTRY
+from commandRegistry import SUMMARY
 from commandRunner import run_command
 from riskScorer import analyze_output
 import reportGenerator as report
 print("----------------------------")
+
+# --- Function: Print Header ---
 def print_header():
     header = r"""
    ____ _               
@@ -18,15 +21,18 @@ def print_header():
     print(header)
     report.beginReport(header)
 
+# --- MAIN ---
 print_header()
 for check in REGISTRY:
+    # --- Label the Currently Checked Area ---
     report.Append(f"Check: {check['name']}")
-
     report.Append(f"Description: {check['description']}")
 
+    # --- Capture Data for Security Analysis ---
     output = run_command(check["command"])
+    
+    # --- Perform Security Checks on Captured Data ---
     for risk in check["risk_patterns"]:
-
         analyze_output(output, risk)
         is_risky = False
         if risk['occurances'] > 0:
@@ -41,3 +47,8 @@ for check in REGISTRY:
         else:
             report.Append("No obvious risk detected")
         report.Append("-" * 40)
+
+        # --- Update the Summary ---
+        SUMMARY['total_checks_run'] = SUMMARY['total_checks_run'] + 1
+        SUMMARY['issues_found'] = SUMMARY['issues_found'] + risk['occurances']
+report.generateReport()

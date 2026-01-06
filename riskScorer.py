@@ -7,6 +7,31 @@ def analyze_output(output, risk_pattern):
     risk_pattern['occurrences'] = len(matching_lines)
     risk_pattern['checked'] = True
 
+def calculate_risk_breakdown(REGISTRY):
+     SEVERITY_WEIGHTS = {
+          "LOW" : 1,
+          "MEDIUM" : 3,
+          "HIGH" : 5
+     }
+     BREAKDOWN = {
+          "LOW" : 0,
+          "MEDIUM" : 0,
+          "HIGH" : 0
+     }
+     OCCURRENCE_CAP = 10
+
+     for check in REGISTRY:
+          for risk in check:
+               severity = risk["severity"].upper
+               weight = SEVERITY_WEIGHTS.get(severity, 0)
+               occurrences = min(risk["occurrences"], OCCURRENCE_CAP)
+               BREAKDOWN['severity'] += weight * occurrences
+     return BREAKDOWN
+
+
+          
+     
+
 def calculate_total_risk(REGISTRY):
     # --- Calculate Total Checks Performed by the Program ---
     SEVERITY_WEIGHTS = {

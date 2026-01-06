@@ -59,7 +59,7 @@ def render_check_section(check):
     # --- Findings ---
     if total_issues == 0:
         lines.append("Findings:")
-        line.append("     No issues detected")
+        lines.append("     No issues detected")
         return "\n".join(lines)
     
     lines.append("Findings:")
@@ -102,10 +102,9 @@ def generateReport():
         file.write(f"Generated: {current_datetime}\nUser: {user}\nHost: {hostname}\nSystem: {system + " " + os_version + " " + architecture}\n\n")
         file.write(f"SUMMARY\n-------\n")
         file.write(f"Total checks run: {total_checks_run}\nIssues found: {total_issues_found}\nOverall risk: {overall_risk}")
-        file.write(f"\n\nRESULTS\n-------`")
+        file.write(f"\n\nRESULTS\n-------")
     
     # --- CHECK RESULTS ---
-
     for check in REGISTRY:
         section = render_check_section(check)
         Append(section)

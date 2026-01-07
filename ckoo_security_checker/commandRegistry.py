@@ -105,3 +105,4 @@ SUMMARY = {
             "issues_found" : 0,
             "overall_risk" : "LOW"
 }
+

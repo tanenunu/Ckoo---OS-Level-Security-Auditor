@@ -10,13 +10,15 @@ from riskScorer import calculate_risk_breakdown
 def beginReport(header):
     with open("report.txt", "w") as file:
         file.write(header)
+    with open("logs.txt", "w") as file:
+        file.write(header)
 
 def Append(text):
     with open("report.txt", "a") as file:
         file.write(f"\n")
         file.write(text)
         print(text)
-        
+
 def get_system_metadata():
     return {
         "generated": datetime.now().strftime("%Y-%m-%d %H:%M"),
@@ -98,7 +100,65 @@ def render_check_section(check):
         lines.append("") #spacing
     return "\n".join(lines)
 
+def generateLogs():
+    metadata = get_system_metadata()
+    current_datetime = metadata['generated']
+    user = metadata['user']
+    hostname = metadata['hostname']
+    system = metadata['system']
+    if system == "Darwin":
+        system = "macOS"
+    os_version = metadata['os_version']
+    architecture = metadata['architecture']
+   
+    # --- SUMMARY DATA ---
+    total_checks_run = SUMMARY['total_checks_run']
+    total_issues_found = SUMMARY['issues_found']
+    overall_risk = calculate_total_risk(REGISTRY)
+    breakdown = calculate_risk_breakdown(REGISTRY)
+    chart = render_risk_chart(breakdown)
+    
 
+    with open("logs.txt", "a") as file:
+        file.write(f"\nCKOO SECURITY LOGS\n===================\n")
+        file.write(f"Generated: {current_datetime}\nUser: {user}\nHost: {hostname}\nSystem: {system + " " + os_version + " " + architecture}\n\n")
+        file.write(f"SUMMARY\n-------\n")
+        file.write(f"Total checks run: {total_checks_run}\nIssues found: {total_issues_found}\nOverall risk: {overall_risk}")
+        file.write(f"\n{chart}")
+        file.write(f"\n\nRESULTS\n-------")
+    
+    # LOGS RESULTS
+    lines = []
+    for check in REGISTRY:  
+        name = check.get('name')
+        lines.append(f"Check: {name}\n")
+        description = check.get('description')
+        lines.append(f"Description: {description}\n")
+        for pattern in check['risk_patterns']:
+            lines.append(f"Search type: ")
+            if pattern['match_any']:
+                lines.append(f"Existence-based\n")
+            else:
+                lines.append(f"Pattern-based\n")
+                lines.append(f"Pattern: {pattern.get('pattern')}\n")
+            lines.append(f"Occurrences: {pattern.get('occurrences')}\n")
+            if pattern['logged_occurrences']:
+                lines.append(f"Logged Occurrences:\n")
+                for log in pattern['logged_occurrences']:
+                    lines.append(f"{log.strip()}\n")
+            lines.append(f"\n")
+        lines.append(f"\n")
+    log_section = "\n".join(lines)
+    with open("logs.txt", "a") as file:
+        file.write(log_section)
+    
+    
+
+
+
+
+    
+    
 
 
 def generateReport():
@@ -134,6 +194,8 @@ def generateReport():
     for check in REGISTRY:
         section = render_check_section(check)
         Append(section)
+    
+    generateLogs()
 
 
 

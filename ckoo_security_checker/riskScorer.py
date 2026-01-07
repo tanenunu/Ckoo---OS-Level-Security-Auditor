@@ -21,15 +21,9 @@ def analyze_output(output, risk_pattern):
     risk_pattern['checked'] = True
 
 
-    # matching_lines = []
-    # for line in output.splitlines():
-    #     if risk_pattern['pattern'] in line:
-    #         matching_lines.append(line.strip())
-    # risk_pattern['logged_occurrences'] = matching_lines
-    # risk_pattern['occurrences'] = len(matching_lines)
-    # risk_pattern['checked'] = True
-
 def calculate_risk_breakdown(REGISTRY):
+     # --- Returns a high level breakdown of data risk ---
+     # Used by reportGenerator.py to render a bar chart in the report overview
      SEVERITY_WEIGHTS = {
           "LOW" : 1,
           "MEDIUM" : 3,
@@ -62,7 +56,6 @@ def calculate_total_risk(REGISTRY):
         "HIGH" : 5
     }
     OCCURRENCE_CAP = 10
-    #total_checks = 0
     actual_risk = 0
     maximum_risk = 0
     for check in REGISTRY:
@@ -73,8 +66,8 @@ def calculate_total_risk(REGISTRY):
             # Maximum possible contribution from this risk pattern
             maximum_risk += weight * OCCURRENCE_CAP
 
-            #Actual contribution
-            occurrences = min(risk["occurrences"], OCCURRENCE_CAP) #will return the cap if occurences is higher
+            # Actual contribution
+            occurrences = min(risk["occurrences"], OCCURRENCE_CAP) # will return the cap if occurences is higher
             actual_risk += weight * occurrences
     if maximum_risk == 0:
             return "LOW"

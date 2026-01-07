@@ -1,0 +1,806 @@
+
+   ____ _               
+  / ___| | _____   ___  
+ | |   | |/ / _ \ / _ \ 
+ | |___|   < (_) | (_) |
+  \____|_|\_\___/ \___/ 
+
+        C K O O
+   OS-Level Security Auditor
+
+    
+CKOO SECURITY LOGS
+===================
+Generated: 2026-01-08 12:31
+User: taneputaranui
+Host: Tanes-MacBook-Pro.local
+System: macOS 14.7.6 x86_64
+
+SUMMARY
+-------
+Total checks run: 6
+Issues found: 346
+Overall risk: HIGH
+
+RISK BREAKDOWN
+--------------
+HIGH   | ███████████          (50)
+MEDIUM | ████████████████████ (90)
+LOW    |                      (0)
+
+RESULTS
+-------Check: Open Network Ports
+
+Description: Lists all active network connections and listening ports
+
+Search type: 
+Pattern-based
+
+Pattern: LISTEN
+
+Occurrences: 20
+
+Logged Occurrences:
+
+tcp4       0      0  *.50111                *.*                    LISTEN
+
+tcp6       0      0  ::1.42050              *.*                    LISTEN
+
+tcp4       0      0  127.0.0.1.3296         *.*                    LISTEN
+
+tcp4       0      0  127.0.0.1.60064        *.*                    LISTEN
+
+tcp6       0      0  ::1.37848              *.*                    LISTEN
+
+tcp4       0      0  127.0.0.1.37848        *.*                    LISTEN
+
+tcp4       0      0  *.57621                *.*                    LISTEN
+
+tcp4       0      0  127.0.0.1.7768         *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49165 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49164 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49163 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49162 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49161 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49160 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49159 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49158 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49157 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49156 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49155 *.*                    LISTEN
+
+tcp6       0      0  fe80::aede:48ff:.49154 *.*                    LISTEN
+
+
+
+
+
+Check: Running Processes
+
+Description: Lists all running processes
+
+Search type: 
+Pattern-based
+
+Pattern: root
+
+Occurrences: 172
+
+Logged Occurrences:
+
+root             53037   3.4  0.1 34238888  11448   ??  Ss   11:21AM   1:14.71 /Library/SystemExtensions/12755A4D-337D-4EA1-BEAD-2174E7432B8B/com.trendmicro.icore.es.systemextension/Contents/MacOS/com.trendmicro.icore.es
+
+root               302   0.8  0.8 35607488  67952   ??  Rs   31Dec25  58:02.53 /Applications/TrendMicro.localized/AFMAgent.app/Contents/Resources/iCoreService.app/Contents/MacOS/iCoreService -p 61301 -n 61100 /Library/Application Support/TrendMicro/common/lib/libTmAntiMalwareDelegate.dylib /Library/Application Support/TrendMicro/common/lib/libTmURLRating.dylib /Library/Application Support/TrendMicro/common/lib/libTmBNS.dylib /Library/Application Support/TrendMicro/common/lib/libTmDeviceControl.dylib /Library/Application Support/TrendMicro/common/lib/libTmFolderShield.dylib /Library/Application Support/TrendMicro/common/lib/libTmFileScan.dylib /Library/Application Support/TrendMicro/common/lib/libTmCoreEPP.dylib /Library/Application Support/TrendMicro/common/lib/libTmFileHash.dylib /Library/Application Support/TrendMicro/common/lib/libTmFileEventHub.dylib /Library/Application Support/TrendMicro/common/lib/libTmNetworkEventHub.dylib
+
+root              6614   0.4  0.0 33728284    912   ??  Ss   Mon10AM   0:00.46 /usr/libexec/taskgated
+
+root               107   0.1  0.2 33973656  16812   ??  Ss    1Jan70   6:22.80 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Support/mds
+
+root                92   0.1  0.1 33762788   5016   ??  Ss    1Jan70   1:59.31 /System/Library/CoreServices/powerd.bundle/powerd
+
+root             36530   0.0  0.0 33727168    180   ??  Ss   Wed10AM   0:00.04 /usr/sbin/BlueTool -R
+
+root             36467   0.0  0.0 33701688      8   ??  Ss   Wed10AM   0:00.04 /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/CVMServer
+
+root             30286   0.0  0.1 33783080   4828   ??  Ss   Tue05PM   0:04.28 /usr/sbin/spindump
+
+root             20905   0.0  0.0 34245952      8   ??  Ss   Tue01PM   0:00.10 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
+
+root             20579   0.0  0.1 33766520   6556   ??  Ss   Tue12PM   0:01.25 /System/Library/CoreServices/ReportCrash daemon
+
+root             20562   0.0  0.0 33728284    364   ??  Ss   Tue12PM   0:00.06 /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Versions/A/XPCServices/com.apple.AppStoreDaemon.StorePrivilegedTaskService.xpc/Contents/MacOS/com.apple.AppStoreDaemon.StorePrivilegedTaskService
+
+root             20543   0.0  0.0 34246316      8   ??  Ss   Tue12PM   0:00.22 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
+
+root             20542   0.0  0.0 34246352      8   ??  Ss   Tue12PM   0:00.30 /System/Library/Frameworks/Metal.framework/Versions/A/XPCServices/MTLCompilerService.xpc/Contents/MacOS/MTLCompilerService
+
+root             20536   0.0  0.1 33791716   4688   ??  Ss   Tue12PM   0:07.80 /System/Library/CoreServices/iconservicesagent runAsRoot
+
+root             20528   0.0  0.0 33761192      8   ??  Ss   Tue12PM   0:20.52 /Library/Apple/System/Library/CoreServices/XProtect.app/Contents/XPCServices/XProtectPluginService.xpc/Contents/MacOS/XProtectPluginService
+
+root             20526   0.0  0.0 33762196   1580   ??  Ss   Tue12PM   0:00.30 /System/Library/PrivateFrameworks/DifferentialPrivacy.framework/XPCServices/DPSubmissionService.xpc/Contents/MacOS/DPSubmissionService
+
+root             20523   0.0  0.0 34186684      8   ??  Ss   Tue12PM   0:00.32 /Library/Apple/System/Library/CoreServices/XProtect.app/Contents/MacOS/XProtect
+
+root             20522   0.0  0.0 33765204   1000   ??  Ss   Tue12PM   0:01.97 /usr/libexec/dprivacyd
+
+root             19992   0.0  0.0 33762372   2196   ??  Ss   Tue11AM   0:02.86 /usr/libexec/ASPCarryLog
+
+root             19875   0.0  0.0 33703928      8   ??  SNs  Tue11AM   0:00.02 /usr/libexec/periodic-wrapper weekly
+
+root             19838   0.0  0.0 33809384   2892   ??  Ss   Tue11AM   3:38.35 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/installd
+
+root             19834   0.0  0.0 33728308   1064   ??  Ss   Tue11AM   0:00.35 /usr/libexec/triald_system
+
+root             19827   0.0  0.0 33753424    720   ??  Ss   Tue11AM   0:00.08 /usr/libexec/sysdiagnosed
+
+root             19825   0.0  0.0 33728280    556   ??  Ss   Tue11AM   0:00.06 /usr/libexec/microstackshot
+
+root             19804   0.0  0.0 33719548    296   ??  Ss   Tue11AM   0:00.06 /System/Library/PrivateFrameworks/Noticeboard.framework/Versions/A/Resources/nbstated
+
+root             19780   0.0  0.0 34181772      8   ??  Ss   Tue11AM   0:00.05 /System/Library/PrivateFrameworks/AppStoreDaemon.framework/Versions/A/XPCServices/com.apple.AppStoreDaemon.StorePrivilegedODRService.xpc/Contents/MacOS/com.apple.AppStoreDaemon.StorePrivilegedODRService
+
+root             19745   0.0  0.0 33728272    600   ??  Ss   Tue11AM   0:00.16 /System/Library/PrivateFrameworks/CacheDelete.framework/deleted_helper
+
+root             19717   0.0  0.0 33727748    544   ??  Ss   Tue11AM   0:00.07 /System/Library/PrivateFrameworks/CoreKDL.framework/Support/corekdld
+
+root             19719   0.0  0.0 33761232   1292   ??  Ss   Tue11AM   0:00.31 /System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd --system
+
+root             19146   0.0  0.0 33765252    892   ??  Ss   Tue11AM   0:00.47 /usr/libexec/symptomsd-diag
+
+root             19145   0.0  0.2 33777796  12632   ??  Ss   Tue11AM   2:56.27 /usr/libexec/PerfPowerServices
+
+root             18268   0.0  0.0 33729324    612   ??  Ss   Tue11AM   0:00.32 /System/Library/PrivateFrameworks/CoreSymbolication.framework/coresymbolicationd
+
+root             18263   0.0  0.0 33761000      8   ??  Ss   Tue11AM   0:00.27 /System/Library/PrivateFrameworks/SiriInference.framework/Support/siriinferenced
+
+root             18188   0.0  0.0 33700676      8   ??  Ss   Tue11AM   0:00.03 /usr/libexec/wallpaperexportd
+
+root             18150   0.0  0.0 33691476      8   ??  Ss   Tue11AM   0:00.01 /System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService
+
+root             18128   0.0  0.0 33710860      8   ??  Ss   Tue11AM   0:00.02 /System/Library/Frameworks/ColorSync.framework/Versions/A/XPCServices/com.apple.ColorSyncXPCAgent.xpc/Contents/MacOS/com.apple.ColorSyncXPCAgent
+
+root             18124   0.0  0.0 33727792      8   ??  Ss   Tue11AM   0:00.03 /usr/libexec/colorsync.displayservices
+
+root             18117   0.0  0.0 33762028    668   ??  Ss   Tue11AM   0:00.14 /System/Library/Frameworks/SystemExtensions.framework/Versions/A/Helpers/sysextd
+
+root             18107   0.0  0.0 33711884      8   ??  S    Tue11AM   0:00.05 /System/Library/Frameworks/MediaAccessibility.framework/Versions/A/XPCServices/com.apple.accessibility.mediaaccessibilityd.xpc/Contents/MacOS/com.apple.accessibility.mediaaccessibilityd
+
+root             18103   0.0  0.0 33728152    308   ??  Ss   Tue11AM   0:00.07 /usr/libexec/keybagd -t 15
+
+root             18102   0.0  0.0 33728340      8   ??  Ss   Tue11AM   0:00.02 /System/Library/Frameworks/NetFS.framework/Versions/A/XPCServices/PlugInLibraryService.xpc/Contents/MacOS/PlugInLibraryService
+
+root             18101   0.0  0.0 33728388    896   ??  Ss   Tue11AM   0:00.09 /usr/libexec/tzd
+
+root             17864   0.0  0.0 33676504      8   ??  Ss   Tue04AM   0:00.04 /usr/libexec/dirhelper
+
+root             17855   0.0  0.0 33727976     20   ??  Ss   Tue12AM   0:00.10 aslmanager
+
+root             17832   0.0  0.0 33699388      8   ??  Ss   Mon04PM   0:00.07 /System/Library/PrivateFrameworks/AssetCacheServicesExtensions.framework/XPCServices/AssetCacheTetheratorService.xpc/Contents/MacOS/AssetCacheTetheratorService
+
+root             17806   0.0  0.0 33677068      8   ??  Ss   Mon04PM   0:00.01 /System/Library/Frameworks/ColorSync.framework/Versions/A/XPCServices/com.apple.ColorSyncXPCAgent.xpc/Contents/MacOS/com.apple.ColorSyncXPCAgent
+
+root             17805   0.0  0.0 33761976   1296   ??  Ss   Mon04PM   0:08.08 /System/Library/PrivateFrameworks/AmbientDisplay.framework/Versions/A/XPCServices/com.apple.AmbientDisplayAgent.xpc/Contents/MacOS/com.apple.AmbientDisplayAgent
+
+root             17799   0.0  0.0 33768244    368   ??  Ss   Mon04PM   0:01.40 /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/Support/akd
+
+root             17788   0.0  0.0 33769972    692   ??  Ss   Mon04PM   0:03.89 /usr/libexec/findmydeviced
+
+root             17787   0.0  0.0 33719556      8   ??  Ss   Mon04PM   0:00.05 /usr/libexec/colorsyncd
+
+root             17783   0.0  0.0 33761352      8   ??  Ss   Mon04PM   0:00.08 /usr/libexec/secinitd
+
+root             17766   0.0  0.0 33728340    572   ??  S    Mon04PM   0:06.12 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/XPCServices/com.apple.hiservices-xpcservice.xpc/Contents/MacOS/com.apple.hiservices-xpcservice
+
+root             17756   0.0  0.0 33784704    788   ??  Ss   Mon04PM   0:01.60 /System/Library/PrivateFrameworks/AppSSO.framework/Support/AppSSODaemon
+
+root             17753   0.0  0.0 33729308    116   ??  Ss   Mon04PM   0:00.16 /System/Library/Frameworks/GSS.framework/Helpers/GSSCred
+
+root             14922   0.0  0.0 34221284    352   ??  Ss   Mon03PM   0:01.05 /usr/libexec/containermanagerd_system --runmode=privileged --user-container-mode=current --bundle-container-mode=global --bundle-container-owner=_appinstalld --system-container-mode=none
+
+root             11521   0.0  0.0 33762376   3484   ??  Ss   Mon02PM   0:03.55 /usr/libexec/PowerUIAgent
+
+root             10146   0.0  0.0 33761608    748   ??  Ss   Mon01PM   0:00.33 /usr/libexec/aned
+
+root             10139   0.0  0.0 33765876    896   ??  Ss   Mon01PM   1:35.65 /System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XprotectService.xpc/Contents/MacOS/XprotectService
+
+root             10137   0.0  0.0 33761944   1596   ??  Ss   Mon01PM   0:00.53 /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Resources/backgroundtaskmanagementd -daemon
+
+root              9171   0.0  0.0 33761784   1604   ??  Ss   Mon01PM   0:04.27 /usr/libexec/ospredictiond
+
+root              9148   0.0  0.0 34236264   1076   ??  Ss   Mon01PM   0:01.39 /System/Library/PrivateFrameworks/TVIdleServices.framework/idleassetsd
+
+root              9005   0.0  0.0 33774588    444   ??  Ss   Mon01PM   0:02.11 /usr/sbin/systemsoundserverd
+
+root              6350   0.0  0.0 33761156   1344   ??  Ss   Mon10AM   0:01.15 /usr/libexec/logd_reporter
+
+root              6333   0.0  0.0 33711640    260   ??  Ss   Mon10AM   0:00.07 /usr/libexec/griddatad
+
+root              6285   0.0  0.0 33711892    132   ??  Ss   Mon10AM   0:00.03 /usr/libexec/mmaintenanced
+
+root              6262   0.0  0.0 33712120    136   ??  SNs  Mon10AM   0:00.04 /usr/libexec/periodic-wrapper daily
+
+root              2472   0.0  0.0 33760684   1632   ??  Ss   Fri12AM   0:00.48 /System/Library/PrivateFrameworks/PackageKit.framework/Resources/system_installd
+
+root              2393   0.0  0.0 33728316    384   ??  Ss   Fri12AM   0:00.05 /System/Library/CoreServices/Applications/Feedback Assistant.app/Contents/Library/LaunchServices/fbahelperd
+
+root              1052   0.0  0.0 33710848      8   ??  Ss   Fri12AM   0:00.03 /System/Library/PrivateFrameworks/InstallerDiagnostics.framework/Versions/A/Resources/installerdiagd
+
+root               981   0.0  0.0 33727760    612   ??  Ss   Fri12AM   0:00.06 /System/Library/CoreServices/CrashReporterSupportHelper server-init
+
+root               933   0.0  0.1 33781652   4652   ??  Ss   Fri12AM   0:14.63 /usr/libexec/wifivelocityd
+
+root               896   0.0  0.0 33761896   1328   ??  Ss   Fri12AM   0:08.90 /usr/libexec/audioanalyticsd
+
+root               807   0.0  0.0 34245096    172   ??  Ss   Fri12AM   0:01.41 /Applications/OneDrive.app/Contents/StandaloneUpdaterDaemon.xpc/Contents/MacOS/StandaloneUpdaterDaemon
+
+root               717   0.0  0.0 34219880    168   ??  Ss   Fri12AM   0:00.26 /Library/Application Support/Paragon Software/com.paragon-software.ntfsd
+
+root               710   0.0  0.0 34243324   1760   ??  Ss   Fri12AM   0:29.74 /Library/PrivilegedHelperTools/com.trendmicro.AFM.HelperTool
+
+root               700   0.0  0.0 33773452   1252   ??  Ss   Fri12AM   0:06.63 /usr/libexec/mobileactivationd
+
+root               538   0.0  0.0 33729420     64   ??  Ss   Fri12AM   0:00.24 automountd
+
+root               529   0.0  0.0 33761368    360   ??  Ss   Fri12AM   0:02.57 /System/Library/PrivateFrameworks/WirelessDiagnostics.framework/Support/awdd
+
+root               522   0.0  0.0 33727972    220   ??  Ss   Fri12AM   0:00.44 /usr/libexec/logd_helper
+
+root               517   0.0  0.0 33770492   2884   ??  Ss   Fri12AM   0:02.68 /usr/sbin/filecoordinationd
+
+root               464   0.0  0.0 33728384    188   ??  Ss   Fri12AM   0:00.11 /usr/libexec/securityd_service
+
+root               426   0.0  0.0 34187364    212   ??  Ss   Fri12AM   0:00.23 /usr/libexec/online-auth-agent
+
+root               397   0.0  0.0 33727880    424   ??  Ss   Fri12AM   0:00.36 /System/Library/Frameworks/CryptoTokenKit.framework/ctkahp.bundle/Contents/MacOS/ctkahp -d
+
+root               396   0.0  0.0 33761308   1808   ??  Ss   Fri12AM   0:15.32 /usr/libexec/biometrickitd --launchd
+
+root               395   0.0  0.0 33761624   2192   ??  Ss   Fri12AM   0:02.29 /System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd
+
+root               394   0.0  0.0 33761048   1352   ??  Ss   Fri12AM   0:00.73 /System/Library/CoreServices/osanalyticshelper server-init
+
+root               391   0.0  0.0 33762596    432   ??  S    Fri12AM   0:02.34 /usr/sbin/systemstats --logger-helper /private/var/db/systemstats
+
+root               378   0.0  0.0 33762720      8   ??  Ss   Fri12AM   0:00.16 /System/Library/CoreServices/sharedfilelistd
+
+root               365   0.0  0.0 33727952    296   ??  Ss   31Dec25   0:19.35 /usr/libexec/sysmond
+
+root               356   0.0  0.1 33886728   8904   ??  Ss   31Dec25   5:38.34 /usr/libexec/TouchBarServer
+
+root               355   0.0  0.0 33760336    772   ??  Ss   31Dec25   0:01.80 /usr/libexec/eligibilityd
+
+root               354   0.0  0.0 33761152   1248   ??  Ss   31Dec25   0:01.89 /usr/libexec/countryd
+
+root               353   0.0  0.0 33762908   1520   ??  Ss   31Dec25   0:18.44 /usr/libexec/wifianalyticsd
+
+root               352   0.0  0.0 33760588    976   ??  Ss   31Dec25   0:01.02 /usr/libexec/findmybeaconingd
+
+root               350   0.0  0.0 33761400   1316   ??  Ss   31Dec25   0:10.34 /usr/sbin/WirelessRadioManagerd
+
+root               343   0.0  0.0 33686808     84   ??  Ss   31Dec25   0:00.72 /usr/libexec/thermald
+
+root               341   0.0  0.0 34225588   1348   ??  Ss   31Dec25   0:01.69 /System/Library/PrivateFrameworks/XprotectFramework.framework/Versions/A/XPCServices/XProtectBridgeService.xpc/Contents/MacOS/XProtectBridgeService
+
+root               334   0.0  0.0 33772916   3348   ??  Ss   31Dec25   0:06.99 /System/Library/CoreServices/SubmitDiagInfo server-init
+
+root               300   0.0  0.0 34394032   1508   ??  Ss   31Dec25   0:54.18 /Applications/TrendMicro.localized/AFMAgent.app/Contents/Resources/iCoreService.app/Contents/MacOS/iCoreService -p 61304 -n 61100 /Library/Application Support/TrendMicro/common/lib/libfeedback.dylib /Library/Application Support/TrendMicro/common/lib/libcensus.dylib
+
+root               301   0.0  0.0 34232692   1844   ??  Ss   31Dec25   0:40.04 /Applications/TrendMicro.localized/AFMAgent.app/Contents/Resources/iCoreService.app/Contents/MacOS/iCoreService -p 61100 -n 61100 /Library/Application Support/TrendMicro/common/lib/libnamingService.dylib /Library/Application Support/TrendMicro/common/lib/libtaskManager.dylib /Library/Application Support/TrendMicro/common/lib/libnotificationService.dylib /Library/Application Support/TrendMicro/common/lib/libTmUpdate.dylib /Library/Application Support/TrendMicro/common/lib/libTmDb.dylib
+
+root               303   0.0  0.0 34224084    640   ??  Ss   31Dec25   0:01.56 /Applications/TrendMicro.localized/AFMAgent.app/Contents/Resources/iCoreService.app/Contents/MacOS/iCoreService -p 61201 -n 61100 /Library/Application Support/TrendMicro/common/lib/libTmProxyDelegate.dylib
+
+root               329   0.0  0.0 34226892   1088   ??  Ss   31Dec25   0:00.35 /private/var/db/com.apple.xpc.roleaccountd.staging/exec/16777220.24236812.xpc/Contents/MacOS/com.apple.MobileSoftwareUpdate.UpdateBrainService
+
+root               327   0.0  0.0 33729672    516   ??  Ss   31Dec25   0:00.25 /System/Library/CoreServices/Software Update.app/Contents/Resources/suhelperd
+
+root               313   0.0  0.0 34221172   3616   ??  Ss   31Dec25   0:29.94 /Library/SystemExtensions/B93AD288-8BE6-433C-980A-10FDBCF7DE1D/com.trendmicro.icore.netfilter.systemextension/Contents/MacOS/com.trendmicro.icore.netfilter
+
+root               311   0.0  0.0 33782508   4064   ??  Ss   31Dec25   0:43.25 /usr/libexec/searchpartyd
+
+root               310   0.0  0.0 33701144   2440   ??  Ss   31Dec25   0:29.55 /usr/libexec/wifip2pd
+
+root               308   0.0  0.0 34190304   1016   ??  Ss   31Dec25   1:07.33 /usr/libexec/audioclocksyncd
+
+root               299   0.0  0.0 34274368   1800   ??  Ss   31Dec25   0:07.10 /Library/Application Support/CleverFiles/BackService.app/Contents/MacOS/cfbackd
+
+root               293   0.0  0.1 33814048   5028   ??  Ss   31Dec25   5:18.48 /usr/libexec/syspolicyd
+
+root               281   0.0  0.0 33793616    540   ??  Ss   31Dec25   0:02.10 /usr/libexec/securityd_system
+
+root               274   0.0  0.3 36242896  28976   ??  Ss   31Dec25   6:52.01 /System/Library/Frameworks/CoreServices.framework/Frameworks/Metadata.framework/Versions/A/Support/mds_stores
+
+root               273   0.0  0.0 33774016   3172   ??  Ss   31Dec25   0:07.76 /usr/libexec/rtcreportingd
+
+root               266   0.0  0.0 33762800   2652   ??  Ss   31Dec25   0:20.77 /System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd
+
+root               228   0.0  0.0 33727776    400   ??  Ss   31Dec25   0:12.32 /usr/libexec/usbd
+
+root               227   0.0  0.1 33790860  11776   ??  Ss   31Dec25   4:02.19 /usr/libexec/mobileassetd
+
+root               233   0.0  0.0 33759816    448   ??  Ss   31Dec25   0:09.47 /System/Library/PrivateFrameworks/SystemStatusServer.framework/Support/systemstatusd
+
+root               232   0.0  0.0 33728784   1696   ??  Ss   31Dec25   0:13.22 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/com.apple.CodeSigningHelper.xpc/Contents/MacOS/com.apple.CodeSigningHelper
+
+root               229   0.0  0.0 33759576    524   ??  Ss   31Dec25   0:00.06 /System/Library/PrivateFrameworks/InstallerDiagnostics.framework/Versions/A/Resources/installerdiagwatcher
+
+root               224   0.0  0.0 33761844    744   ??  Ss   31Dec25   0:09.00 /usr/libexec/nesessionmanager
+
+root               221   0.0  0.0 33753276    484   ??  Ss   31Dec25   0:05.27 /usr/sbin/mDNSResponderHelper
+
+root               220   0.0  0.0 33768932   2544   ??  Ss   31Dec25   0:02.62 /usr/libexec/storagekitd
+
+root               191   0.0  0.0 33663752    444   ??  S     1Jan70   0:04.55 /usr/sbin/distnoted agent
+
+root               212   0.0  0.0 33762692   1716   ??  Ss    1Jan70   0:03.63 /System/Library/Frameworks/Security.framework/Versions/A/XPCServices/authd.xpc/Contents/MacOS/authd
+
+root               208   0.0  0.0 33732228   1056   ??  Ss    1Jan70  37:20.08 /usr/libexec/apfsd
+
+root               204   0.0  0.0 33759680    256   ??  Ss    1Jan70   0:01.24 /System/Library/CryptoTokenKit/com.apple.ifdreader.slotd/Contents/MacOS/com.apple.ifdreader
+
+root               203   0.0  0.0 33695056      8   ??  Ss    1Jan70   0:00.02 /usr/libexec/multiversed
+
+root               202   0.0  0.0 33769132   2300   ??  Ss    1Jan70   0:03.32 /usr/libexec/nehelper
+
+root               187   0.0  0.0 33760804   1608   ??  Ss    1Jan70   0:07.90 /System/Library/CoreServices/backupd.bundle/Contents/Resources/backupd-helper -launchd
+
+root               179   0.0  0.1 33789388  10116   ??  Ss    1Jan70  20:58.66 /usr/libexec/airportd
+
+root               167   0.0  0.1 33773120   8036   ??  Ss    1Jan70   3:48.99 /usr/libexec/runningboardd
+
+root               164   0.0  0.1 33771504   5752   ??  Ss    1Jan70   0:39.39 /System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/contextstored
+
+root               158   0.0  0.1 33770724   6916   ??  Ss    1Jan70   0:23.80 /usr/libexec/lsd runAsRoot
+
+root               156   0.0  0.0 33745288    948   ??  Ss    1Jan70   0:06.12 /System/Library/CoreServices/coreservicesd
+
+root               149   0.0  0.1 33772444   6136   ??  Ss    1Jan70   2:44.98 /System/Library/PrivateFrameworks/TCC.framework/Support/tccd system
+
+root               148   0.0  0.0 33729240   2972   ??  Ss    1Jan70   0:57.50 /usr/sbin/cfprefsd daemon
+
+root               145   0.0  0.0 33762336   1176   ??  Ss    1Jan70   0:02.34 /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/Resources/com.apple.cmio.registerassistantservice
+
+root               136   0.0  0.0 33762024   1176   ??  Ss    1Jan70   0:01.67 /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/Support/revisiond
+
+root               113   0.0  0.0 33771076   4004   ??  Ss    1Jan70   2:20.23 /usr/libexec/coreduetd
+
+root               138   0.0  0.0 33728316    944   ??  Ss    1Jan70   0:01.63 /usr/libexec/usermanagerd -t 15
+
+root               129   0.0  0.1 33767148   6772   ??  Ss    1Jan70   1:57.68 /usr/libexec/dasd
+
+root               120   0.0  0.1 33764652   6284   ??  Ss    1Jan70   2:55.61 /System/Library/CoreServices/launchservicesd
+
+root               114   0.0  0.0 33729424    628   ??  Ss    1Jan70   0:10.10 /usr/sbin/syslogd
+
+root                91   0.0  0.0 33761924   1088   ??  Ss    1Jan70   0:00.78 endpointsecurityd
+
+root                87   0.0  0.0 33771032   3540   ??  Ss    1Jan70   0:50.75 /usr/sbin/systemstats --daemon
+
+root                84   0.0  0.0 33765116   3180   ??  Ss    1Jan70   0:29.10 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoted
+
+root                78   0.0  0.0 33761456    704   ??  Ss    1Jan70   0:00.86 /usr/libexec/smd
+
+root               144   0.0  0.0 33761904   3680   ??  Ss    1Jan70   0:31.02 /usr/libexec/AirPlayXPCHelper
+
+root               141   0.0  0.0 33728108   2124   ??  Ss    1Jan70   1:04.05 /usr/sbin/notifyd
+
+root               137   0.0  0.0 33687312      8   ??  Ss    1Jan70   0:00.02 /usr/sbin/KernelEventAgent
+
+root               132   0.0  0.0 33760172    164   ??  Ss    1Jan70   0:00.24 /System/Library/PrivateFrameworks/AppleCredentialManager.framework/AppleCredentialManagerDaemon
+
+root               135   0.0  0.0 33727824    840   ??  Ss    1Jan70   0:00.34 /System/Library/CoreServices/logind
+
+root               143   0.0  0.0 33763024   3384   ??  Ss    1Jan70   0:52.33 /usr/libexec/corebrightnessd --launchd
+
+root               142   0.0  0.0 33762100   1808   ??  Ss    1Jan70   0:04.30 /usr/libexec/sandboxd
+
+root               127   0.0  0.0 33719172      8   ??  Ss    1Jan70   0:00.02 autofsd
+
+root               123   0.0  0.0 33764132   1868   ??  Ss    1Jan70   0:07.74 /usr/sbin/securityd -i
+
+root               119   0.0  0.1 33850280   5324   ??  Ss    1Jan70   0:34.60 /System/Library/PrivateFrameworks/ApplePushService.framework/apsd
+
+root               118   0.0  0.1 33784184   6312   ??  Ss    1Jan70   2:31.27 /usr/libexec/opendirectoryd
+
+root               117   0.0  0.0 33684748      8   ??  Ss    1Jan70   0:00.03 /usr/libexec/thermalmonitord
+
+root               110   0.0  0.0 33760236   1716   ??  Ss    1Jan70   0:05.45 /usr/libexec/diskarbitrationd
+
+root               109   0.0  0.0 33767960    640   ??  Ss    1Jan70   0:08.32 /usr/libexec/kernelmanagerd
+
+root               103   0.0  0.0 33720164    364   ??  Ss    1Jan70   0:03.52 /usr/libexec/watchdogd
+
+root                98   0.0  0.0 33770400   1692   ??  Ss    1Jan70   0:15.12 /usr/libexec/remoted
+
+root                96   0.0  0.0 33760856   1532   ??  Ss    1Jan70   0:05.10 /usr/libexec/amfid
+
+root                90   0.0  0.0 33765144   3244   ??  Ss    1Jan70   1:32.51 /usr/libexec/configd
+
+root                83   0.0  0.0 33744620   2316   ??  Ss    1Jan70   2:26.26 /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/Support/fseventsd
+
+root                82   0.0  0.0 33695000    500   ??  Ss    1Jan70   0:03.80 /System/Library/PrivateFrameworks/Uninstall.framework/Resources/uninstalld
+
+root                79   0.0  0.0 33763768   3888   ??  Ss    1Jan70   0:45.20 /usr/libexec/UserEventAgent (System)
+
+root                77   0.0  0.1 33890420  10608   ??  Ss    1Jan70   3:09.25 /usr/libexec/logd
+
+root             54958   0.0  0.0 33607904   1064 s006  R+   12:30PM   0:00.01 ps aux
+
+root                 1   0.0  0.1 34190048   7988   ??  Ss    1Jan70   6:43.27 /sbin/launchd
+
+root             53039   0.0  0.1 33816200  12296   ??  Ss   11:21AM   0:13.63 /usr/sbin/bluetoothd
+
+root             52309   0.0  0.0 34160168      8 s005  Ss    4:10PM   0:00.04 login -pf taneputaranui
+
+
+
+Search type: 
+Pattern-based
+
+Pattern: SYSTEM
+
+Occurrences: 0
+
+
+
+
+
+Check: Startup Persistence
+
+Description: Detects programs configured to run at startup
+
+Search type: 
+Pattern-based
+
+Pattern: .plist
+
+Occurrences: 26
+
+Logged Occurrences:
+
+com.microsoft.OneDriveStandaloneUpdater.plist
+
+com.microsoft.SyncReporter.plist
+
+com.microsoft.update.agent.plist
+
+com.paragon-software.ntfs.notification-agent.plist
+
+com.trendmicro.itis.dca.plist
+
+com.trendmicro.itis.dmr.plist
+
+com.trendmicro.itis.uimgmt.agent.plist
+
+com.apple.installer.cleanupinstaller.plist
+
+com.apple.installer.osmessagetracing.plist
+
+com.cleverfiles.cfbackd.plist
+
+com.expressvpn.expressvpnd.plist
+
+com.microsoft.OneDriveStandaloneUpdaterDaemon.plist
+
+com.microsoft.OneDriveUpdaterDaemon.plist
+
+com.microsoft.autoupdate.helper.plist
+
+com.microsoft.office.licensingV2.helper.plist
+
+com.paragon-software.installer.plist
+
+com.paragon-software.ntfs.loader.plist
+
+com.paragon-software.ntfsd.plist
+
+com.trendmicro.AFM.HelperTool.plist
+
+com.trendmicro.icore.av.plist
+
+com.trendmicro.icore.ec.plist
+
+com.trendmicro.icore.main.plist
+
+com.trendmicro.icore.misc.plist
+
+com.trendmicro.icore.wp.plist
+
+com.trendmicro.itis.kext.plist
+
+us.zoom.ZoomDaemon.plist
+
+
+
+Search type: 
+Pattern-based
+
+Pattern: Ready
+
+Occurrences: 0
+
+
+
+
+
+Check: World-Writable Files
+
+Description: Finds files writable by any user
+
+Search type: 
+Existence-based
+
+Occurrences: 128
+
+Logged Occurrences:
+
+/Applications/XAMPP/xamppfiles/htdocs/SwagCreations_website/database.sqlite
+
+/Applications/XAMPP/xamppfiles/htdocs/htmltest/team_management/messages.json
+
+/Applications/XAMPP/uninstall.app/Contents/MacOS/osx-x86_64
+
+/Applications/XAMPP/uninstall.app/Contents/Resources/osx-x86_64.dat
+
+/Library/Application Support/TrendMicro/TMAFM/SilentInstaller.app/Contents/Resources/TMSIConf.plist
+
+/Library/Application Support/TrendMicro/TMAFM/TMDownloaderManager/TMDownloaderManagerConf.plist
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.6 to HDR 2000 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.4 to HDR 4000 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.4 to HDR 800 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.6 to HDR 500 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 800 nits to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.6 to HDR 4000 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.4 to HDR 2000 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 2000 nits to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 4000 nits to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 1000 nits to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 300 nits to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 500 nits to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.6 to HDR 300 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 300 nits to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.4 to HDR 500 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 1000 nits to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 500 nits to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.6 to HDR 800 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.4 to HDR 300 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.6 to HDR 1000 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 800 nits to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/Gamma 2.4 to HDR 1000 nits.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 4000 nits to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR ST 2084/HDR 2000 nits to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Olympus/Olympus OM-Log400_to_BT.709_v1.0.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/LMT Day for Night.xml
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Canon Log to Video.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/ACES/LMT ACES v0.1.1.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Sony SLog2 to Rec709.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Invert Color.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Sony SLog3 to Rec709.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/Gamma 2.6 to HLG.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/HLG to Gamma 2.6.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/Gamma 1.0 to HLG.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/HLG to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/Gamma 2.2 to HLG.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/HLG to Gamma 1.0.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/HLG to Gamma 2.2.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/HDR Hybrid Log-Gamma/Gamma 2.4 to HLG.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Canon Log to Rec709.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/RED/RWG_Log3G10_to_REC709_BT1886_with_LOW_CONTRAST_and_R_3_Soft_size_33.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Astrodesign/ALog to ARRI Log C.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/LMT Neon Suppression.xml
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Canon Log to Cineon.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/LMT Kodak 2383 Print Emulation.xml
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Arri/Arri Alexa LogC to Rec709.dat
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Invert Color.olut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Cintel Negative to Linear.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DCI/P3 to DCI-XYZ.dat
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DCI/Rec709 to DCI-XYZ.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DCI/sRGB to DCI-XYZ.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Data to Video with Clip.olut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/DCI-P3 Fujifilm 3513DI D55.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/DCI-P3 Kodak 2383 D55.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Fujifilm 3513DI D65.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/DCI-P3 Fujifilm 3513DI D65.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/DCI-P3 Kodak 2383 D65.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Kodak 2383 D60.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Fujifilm 3513DI D55.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Fujifilm 3513DI D60.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Kodak 2383 D55.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/Rec709 Kodak 2383 D65.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/DCI-P3 Fujifilm 3513DI D60.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Film Looks/DCI-P3 Kodak 2383 D60.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DJI/DJI_Phantom4_DLOG2sRGB_Improv.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DJI/DJI_X7_DLOG2Rec709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DJI/DJI_Phantom3_DLOG2sRGB_Improv.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DJI/DJI_Phantom4_DLOG2Rec709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DJI/DJI_X7_Linear2DLOG.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/DJI/DJI_X5_DLOG2sRGB_Improv.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/sRGB to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to Gamma 2.2.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/ARRI LogC to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to BMDFilm 4.6K.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Rec.709 to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/sLog2 to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to DCI.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to sRGB.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to Gamma 2.4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/DCI to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/BMDFilm to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to ARRI LogC.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to BMDFilm 4K.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Gamma 2.2 to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/BMDFilm 4.6K to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to BMDFilm.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to Rec.709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Gamma 2.4 to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/BMDFilm 4K to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to sLog2.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Cineon Log to Linear.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/VFX IO/Linear to Cineon Log.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Cintel Print to Linear.ilut
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Pocket 6K Film to Extended Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Pocket 4K Film to Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4.6K Film to Video.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4K Film to Rec709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4.6K Film to Rec709 v3.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4K Film to Video v3.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4K Film to Extended Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Broadcast Film to Rec2020 PQ v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Pocket 6K Film to Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4.6K Film to Rec709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4.6K Film to Video v3.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Cinema Camera Film to Rec709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4K Film to Rec709 v2.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Pocket 4K Film to Extended Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4.6K Film to Extended Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Broadcast Film to Rec2020 HLG v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4K Film to Rec709 v3.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Broadcast Film to Extended Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Film to Extended Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic 4.6K Film to Video v4.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Blackmagic Design/Blackmagic Cinema Camera Film to Rec709 v2.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Panasonic/V-Log to V-709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Sony/SLog3SGamut3.CineToLC-709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Sony/SLog3SGamut3.CineToSLog2-709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Sony/SLog3SGamut3.CineToCine+709.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/LUT/Sony/SLog3SGamut3.CineToLC-709TypeA.cube
+
+/Library/Application Support/Blackmagic Design/DaVinci Resolve/logs/davinci_resolve.log
+
+/Library/Logs/CleverFiles/cfbackd.log
+
+/Library/Logs/MCXTools.log
+
+
+
+

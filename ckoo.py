@@ -2,6 +2,7 @@ from commandRegistry import REGISTRY
 from commandRegistry import SUMMARY
 from commandRunner import run_command
 from riskScorer import analyze_output
+import platform
 import reportGenerator as report
 print("----------------------------")
 
@@ -29,7 +30,7 @@ for check in REGISTRY:
     #report.Append(f"Description: {check['description']}")
 
     # --- Capture Data for Security Analysis ---
-    output = run_command(check["command"])
+    output = run_command(check)
     
     # --- Perform Security Checks on Captured Data ---
     for risk in check["risk_patterns"]:

@@ -1,11 +1,33 @@
 def analyze_output(output, risk_pattern):
-    matching_lines = []
-    for line in output.splitlines():
-        if risk_pattern['pattern'] in line:
-            matching_lines.append(line.strip())
-    risk_pattern['logged_occurrences'] = matching_lines
-    risk_pattern['occurrences'] = len(matching_lines)
+    lines = output.splitlines()
+
+
+    # Case 1: existence-based risk (each line is a risk occurrence)
+    if risk_pattern.get("match_any") == True:
+         risk_pattern["occurrences"] += len(lines)
+         risk_pattern["logged_occurrences"].extend(lines)
+         risk_pattern["checked"] = True
+         return
+    
+    # Case 2: pattern-based risk (lines that match the pattern are a risk occurrence)
+    pattern = risk_pattern.get("pattern")
+    if not pattern:
+         return
+    
+    for line in lines:
+         if pattern in line:
+              risk_pattern["occurrences"] += 1
+              risk_pattern["logged_occurrences"].append(line)
     risk_pattern['checked'] = True
+
+
+    # matching_lines = []
+    # for line in output.splitlines():
+    #     if risk_pattern['pattern'] in line:
+    #         matching_lines.append(line.strip())
+    # risk_pattern['logged_occurrences'] = matching_lines
+    # risk_pattern['occurrences'] = len(matching_lines)
+    # risk_pattern['checked'] = True
 
 def calculate_risk_breakdown(REGISTRY):
      SEVERITY_WEIGHTS = {

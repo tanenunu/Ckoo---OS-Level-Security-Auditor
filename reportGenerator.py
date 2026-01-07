@@ -45,6 +45,9 @@ def render_risk_chart(breakdown):
     max_value = max(breakdown.values()) if breakdown else 1
     bar_width = 20
 
+    if max_value == 0:
+        max_value = 1 # prevent division by zero
+
     for severity in ["HIGH", "MEDIUM", "LOW"]:
         value = breakdown.get(severity, 0)
         bar_length = int((value / max_value) * bar_width)

@@ -31,10 +31,7 @@ for check in REGISTRY:
     # --- Perform Security Checks on Captured Data ---
     for risk in check["risk_patterns"]:
         analyze_output(output, risk)
-        is_risky = False
-        if risk['occurrences'] > 0:
-            is_risky = True
-
+        
         # --- Update the Summary ---
         SUMMARY['total_checks_run'] = SUMMARY['total_checks_run'] + 1
         SUMMARY['issues_found'] = SUMMARY['issues_found'] + risk['occurrences']
